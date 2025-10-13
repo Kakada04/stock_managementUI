@@ -58,3 +58,42 @@
 .camera-list::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+.scan-line {
+  animation: scan 2s infinite linear;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+/* Custom scrollbar for camera list */
+.max-h-60::-webkit-scrollbar {
+  width: 6px;
+}
+
+.max-h-60::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.max-h-60::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.max-h-60::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+video {
+  transform: scaleX(-1); /* Mirror the video for more natural feel */
+}
