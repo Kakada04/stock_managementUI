@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { Layout } from './layout/layout';
 import { guardGuard } from './CORE/Guard/guard-guard';
+import { Dashboard } from './components/dashboard/dashboard';
+import { Usermanage } from './components/usermanage/usermanage';
+import { Ordermanage } from './components/ordermanage/ordermanage';
 
 export const routes: Routes = [
     {
@@ -16,21 +19,21 @@ export const routes: Routes = [
             {
                 path: 'inventory', 
                 loadComponent: () => import('./components/inventory-page/inventory-page').then(c => c.InventoryPage)
-            // },
-            // {
-            //     path: 'dashboard', 
-            //     loadComponent: () => import('./components/dashboard/dashboard').then(c => c.Dashboard),
-            //     data: { role: 'admin' } // Only admin can access
-            // },
-            // {
-            //     path: 'user-management', 
-            //     loadComponent: () => import('./components/user-management/user-management').then(c => c.UserManagement),
-            //     data: { role: 'admin' } // Only admin can access
-            // },
-            // {
-            //     path: 'order-management', 
-            //     loadComponent: () => import('./components/order-management/order-management').then(c => c.OrderManagement)
-            // 
+            },
+            {
+                path: 'dashboard', 
+                loadComponent: () => import('./components/dashboard/dashboard').then(c => c.Dashboard),
+                // data: { role: 'admin' } // Only admin can access
+            },
+            {
+                path: 'usermanage', 
+                loadComponent: () => import('./components/usermanage/usermanage').then(c => c.Usermanage),
+                // data: { role: 'admin' } // Only admin can access
+            },
+            {
+                path: 'ordermanage', 
+                loadComponent: () => import('./components/ordermanage/ordermanage').then(c => c.Ordermanage)
+            
             },{
   path: 'category-management',
   loadComponent: () => import('./components/category-management/category-management').then(c => c.CategoryManagement),
