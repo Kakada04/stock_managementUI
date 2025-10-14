@@ -1,203 +1,201 @@
-
 <div class="p-6">
-    <div class="flex h-screen overflow-hidden">
-  <div class="flex flex-col flex-1 overflow-hidden">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">Dashboard Overview</h1>
+    <p class="text-gray-600">Welcome back! Here's what's happening with your inventory today.</p>
+  </div>
 
-    <!-- Dashboard content -->
-    <div class="flex-1 overflow-auto bg-gray-50">
-      <div class="mb-6">
-        <h1 class="text-2xl font-bold text-gray-800">Dashboard Overview</h1>
-        <p class="text-gray-600">Welcome back! Here's what's happening with your inventory today.</p>
-      </div>
-
-      <!-- Stats cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <!-- Card repeated similarly to your HTML -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <div class="flex items-center">
-            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
-              <i data-feather="package"></i>
-            </div>
-            <div class="ml-4">
-              <h3 class="text-gray-500 text-sm font-medium">Total Products</h3>
-              <p class="text-2xl font-bold text-gray-800">1,254</p>
-              <p class="text-sm text-green-500 flex items-center">
-                <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
-                <span>12% from last month</span>
-              </p>
-            </div>
-          </div>
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+    <!-- Total Products -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex items-center">
+        <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+          <i data-feather="package"></i>
         </div>
-
-        <!-- ... other cards (Total Sales, Low Stock, New Orders) -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <div class="flex items-center">
-            <div class="p-3 rounded-full bg-green-100 text-green-600">
-              <i data-feather="dollar-sign"></i>
-            </div>
-            <div class="ml-4">
-              <h3 class="text-gray-500 text-sm font-medium">Total Sales</h3>
-              <p class="text-2xl font-bold text-gray-800">$24,780</p>
-              <p class="text-sm text-green-500 flex items-center">
-                <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
-                <span>8% from last week</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow">
-          <div class="flex items-center">
-            <div class="p-3 rounded-full bg-red-100 text-red-600">
-              <i data-feather="alert-circle"></i>
-            </div>
-            <div class="ml-4">
-              <h3 class="text-gray-500 text-sm font-medium">Low Stock</h3>
-              <p class="text-2xl font-bold text-gray-800">47</p>
-              <p class="text-sm text-red-500 flex items-center">
-                <i data-feather="trending-down" class="w-4 h-4 mr-1"></i>
-                <span>3 new today</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow">
-          <div class="flex items-center">
-            <div class="p-3 rounded-full bg-purple-100 text-purple-600">
-              <i data-feather="shopping-cart"></i>
-            </div>
-            <div class="ml-4">
-              <h3 class="text-gray-500 text-sm font-medium">New Orders</h3>
-              <p class="text-2xl font-bold text-gray-800">32</p>
-              <p class="text-sm text-green-500 flex items-center">
-                <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
-                <span>5 pending fulfillment</span>
-              </p>
-            </div>
-          </div>
+        <div class="ml-4">
+          <h3 class="text-gray-500 text-sm font-medium">Total Products</h3>
+          <p class="text-2xl font-bold text-gray-800">1,254</p>
+          <p class="text-sm text-green-500 flex items-center">
+            <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
+            <span>12% from last month</span>
+          </p>
         </div>
       </div>
+    </div>
 
-      <!-- Charts and reports -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold text-gray-800">Sales Overview</h2>
-            <div class="flex space-x-2">
-              <button class="px-3 py-1 text-sm rounded-md bg-primary text-white">Day</button>
-              <button class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700">Week</button>
-              <button class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700">Month</button>
-            </div>
-          </div>
-          <div class="chart-container" style="height:250px;">
-            <canvas #salesCanvas id="salesChart"></canvas>
-          </div>
+    <!-- Total Sales -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex items-center">
+        <div class="p-3 rounded-full bg-green-100 text-green-600">
+          <i data-feather="dollar-sign"></i>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold text-gray-800">Top Selling Products</h2>
-            <button class="text-primary text-sm font-medium">View All</button>
-          </div>
-          <div class="space-y-4">
-            <!-- product rows -->
-            <div class="flex items-center">
-              <img src="http://static.photos/retail/200x200/1" alt="Product" class="w-10 h-10 rounded-md object-cover">
-              <div class="ml-3">
-                <h4 class="text-sm font-medium text-gray-800">Wireless Headphones</h4>
-                <p class="text-xs text-gray-500">SKU: WH-2023</p>
-              </div>
-              <div class="ml-auto text-right">
-                <p class="text-sm font-medium text-gray-800">$129</p>
-                <p class="text-xs text-green-500">124 sold</p>
-              </div>
-            </div>
-            <!-- more rows... -->
-          </div>
+        <div class="ml-4">
+          <h3 class="text-gray-500 text-sm font-medium">Total Sales</h3>
+          <p class="text-2xl font-bold text-gray-800">$24,780</p>
+          <p class="text-sm text-green-500 flex items-center">
+            <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
+            <span>8% from last week</span>
+          </p>
         </div>
       </div>
+    </div>
 
-      <!-- Low stock + comparison -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold text-gray-800">Low Stock Alerts</h2>
-            <button class="text-primary text-sm font-medium">View All</button>
-          </div>
-          <div class="space-y-3">
-            <!-- list items -->
-            <div class="flex items-center p-3 bg-red-50 rounded-md">
-              <div class="flex-shrink-0">
-                <img src="http://static.photos/technology/200x200/5" alt="Product" class="w-10 h-10 rounded-md object-cover">
-              </div>
-              <div class="ml-3">
-                <h4 class="text-sm font-medium text-gray-800">Wireless Earbuds</h4>
-                <div class="flex items-center mt-1">
-                  <span class="text-xs font-medium text-red-600">5 left</span>
-                  <span class="mx-2 text-gray-300">|</span>
-                  <span class="text-xs text-gray-500">SKU: WE-2023</span>
-                </div>
-              </div>
-              <button class="ml-auto p-1 text-gray-400 hover:text-gray-600">
-                <i data-feather="more-vertical"></i>
-              </button>
-            </div>
-          </div>
+    <!-- Low Stock -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex items-center">
+        <div class="p-3 rounded-full bg-red-100 text-red-600">
+          <i data-feather="alert-circle"></i>
         </div>
-
-        <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold text-gray-800">Sales vs Restock Comparison</h2>
-            <div class="flex space-x-2">
-              <button class="text-primary text-sm font-medium">PDF</button>
-              <button class="text-primary text-sm font-medium">Excel</button>
-            </div>
-          </div>
-          <div class="chart-container" style="height:250px;">
-            <canvas #comparisonCanvas id="comparisonChart"></canvas>
-          </div>
+        <div class="ml-4">
+          <h3 class="text-gray-500 text-sm font-medium">Low Stock</h3>
+          <p class="text-2xl font-bold text-gray-800">47</p>
+          <p class="text-sm text-red-500 flex items-center">
+            <i data-feather="trending-down" class="w-4 h-4 mr-1"></i>
+            <span>3 new today</span>
+          </p>
         </div>
       </div>
+    </div>
 
-      <!-- Recent orders -->
-      <div class="bg-white p-6 rounded-lg shadow">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-semibold text-gray-800">Recent Orders</h2>
-          <button class="text-primary text-sm font-medium">View All</button>
+    <!-- New Orders -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex items-center">
+        <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+          <i data-feather="shopping-cart"></i>
         </div>
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">ID</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Customer</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Date</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full">Status</span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Amount</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <button class="text-primary hover:text-primary-dark">View</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="ml-4">
+          <h3 class="text-gray-500 text-sm font-medium">New Orders</h3>
+          <p class="text-2xl font-bold text-gray-800">32</p>
+          <p class="text-sm text-green-500 flex items-center">
+            <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
+            <span>5 pending fulfillment</span>
+          </p>
         </div>
       </div>
-
     </div>
   </div>
-</div>
 
+  <!-- Charts and Reports -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+    <!-- Sales Overview -->
+    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-gray-800">Sales Overview</h2>
+        <div class="flex space-x-2">
+          <button class="px-3 py-1 text-sm rounded-md bg-blue-600 text-white">Day</button>
+          <button class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700">Week</button>
+          <button class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700">Month</button>
+        </div>
+      </div>
+      <div class="chart-container" style="height:250px;">
+        <canvas #salesCanvas id="salesChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Top Selling Products -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-gray-800">Top Selling Products</h2>
+        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</button>
+      </div>
+      <div class="space-y-4">
+        <div class="flex items-center">
+          <img src="http://static.photos/retail/200x200/1" alt="Product" class="w-10 h-10 rounded-md object-cover">
+          <div class="ml-3">
+            <h4 class="text-sm font-medium text-gray-800">Wireless Headphones</h4>
+            <p class="text-xs text-gray-500">SKU: WH-2023</p>
+          </div>
+          <div class="ml-auto text-right">
+            <p class="text-sm font-medium text-gray-800">$129</p>
+            <p class="text-xs text-green-500">124 sold</p>
+          </div>
+        </div>
+        <!-- Add more product rows as needed -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Low Stock & Comparison -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+    <!-- Low Stock Alerts -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-gray-800">Low Stock Alerts</h2>
+        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</button>
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-center p-3 bg-red-50 rounded-md">
+          <img src="http://static.photos/technology/200x200/5" alt="Product" class="w-10 h-10 rounded-md object-cover">
+          <div class="ml-3">
+            <h4 class="text-sm font-medium text-gray-800">Wireless Earbuds</h4>
+            <div class="flex items-center mt-1">
+              <span class="text-xs font-medium text-red-600">5 left</span>
+              <span class="mx-2 text-gray-300">|</span>
+              <span class="text-xs text-gray-500">SKU: WE-2023</span>
+            </div>
+          </div>
+          <button class="ml-auto p-1 text-gray-400 hover:text-gray-600">
+            <i data-feather="more-vertical"></i>
+          </button>
+        </div>
+        <!-- Add more alerts as needed -->
+      </div>
+    </div>
+
+    <!-- Sales vs Restock -->
+    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-gray-800">Sales vs Restock Comparison</h2>
+        <div class="flex space-x-2">
+          <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">PDF</button>
+          <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Excel</button>
+        </div>
+      </div>
+      <div class="chart-container" style="height:250px;">
+        <canvas #comparisonCanvas id="comparisonChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Orders Table -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <div class="px-6 py-4 border-b border-gray-200">
+      <div class="flex justify-between items-center">
+        <h2 class="text-lg font-semibold text-gray-800">Recent Orders</h2>
+        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</button>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD-7842</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Alex Johnson</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 12, 2024</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                Completed
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$142.50</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">
+              <button class="text-blue-600 hover:text-blue-900">View</button>
+            </td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
