@@ -1,68 +1,124 @@
 <div class="flex h-screen bg-gray-50">
   <!-- Sidebar -->
-  <aside class="w-64 bg-white shadow-lg border-r border-gray-200 flex flex-col">
-    <!-- Logo -->
-    <div class="px-6 py-5 border-b border-gray-200">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-md">
-          <span class="text-white font-bold text-base">AD</span>
-        </div>
-        <span class="text-xl font-bold text-gray-800 tracking-tight">AdminDash</span>
+<!-- Sidebar -->
+<aside class="w-64 bg-white shadow-lg border-r border-gray-200 flex flex-col">
+  <!-- Logo -->
+  <div class="px-6 py-5 border-b border-gray-200">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-md">
+        <span class="text-white font-bold text-base">AD</span>
+      </div>
+      <span class="text-xl font-bold text-gray-800 tracking-tight">AdminDash</span>
+    </div>
+  </div>
+  
+  <!-- Navigation -->
+ <!-- Navigation -->
+<nav class="flex-1 px-4 py-6 space-y-1">
+  <!-- Dashboard -->
+  <a routerLink="/dashboard"
+     [ngClass]="{
+       'text-blue-700 bg-blue-50 border border-blue-100 shadow-sm': isDashboard,
+       'text-gray-600 hover:bg-blue-50 hover:text-blue-700': !isDashboard
+     }"
+     class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all group">
+    <svg class="w-5 h-5 transition-colors"
+         [ngClass]="{
+           'text-blue-600': isDashboard,
+           'text-gray-400 group-hover:text-blue-600': !isDashboard
+         }"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+    </svg>
+    <span class="font-medium">Dashboard</span>
+  </a>
+
+  <!-- Inventory -->
+  <a routerLink="/inventory"
+     [ngClass]="{
+       'text-blue-700 bg-blue-50 border border-blue-100 shadow-sm': isInventory,
+       'text-gray-600 hover:bg-blue-50 hover:text-blue-700': !isInventory
+     }"
+     class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all group">
+    <svg class="w-5 h-5 transition-colors"
+         [ngClass]="{
+           'text-blue-600': isInventory,
+           'text-gray-400 group-hover:text-blue-600': !isInventory
+         }"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+    </svg>
+    <span class="font-medium">Inventory</span>
+  </a>
+
+  <!-- User Management -->
+  <a routerLink="/usermanage"
+     [ngClass]="{
+       'text-blue-700 bg-blue-50 border border-blue-100 shadow-sm': isUserManagement,
+       'text-gray-600 hover:bg-blue-50 hover:text-blue-700': !isUserManagement
+     }"
+     class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all group">
+    <svg class="w-5 h-5 transition-colors"
+         [ngClass]="{
+           'text-blue-600': isUserManagement,
+           'text-gray-400 group-hover:text-blue-600': !isUserManagement
+         }"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+    </svg>
+    <span class="font-medium">User Management</span>
+  </a>
+
+  <!-- Order Management -->
+  <a routerLink="/ordermanage"
+     [ngClass]="{
+       'text-blue-700 bg-blue-50 border border-blue-100 shadow-sm': isOrderManagement,
+       'text-gray-600 hover:bg-blue-50 hover:text-blue-700': !isOrderManagement
+     }"
+     class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all group">
+    <svg class="w-5 h-5 transition-colors"
+         [ngClass]="{
+           'text-blue-600': isOrderManagement,
+           'text-gray-400 group-hover:text-blue-600': !isOrderManagement
+         }"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+    </svg>
+    <span class="font-medium">Order Management</span>
+  </a>
+
+  <!-- Category Management -->
+  <a routerLink="/category-management"
+     [ngClass]="{
+       'text-blue-700 bg-blue-50 border border-blue-100 shadow-sm': isCategoryManagement,
+       'text-gray-600 hover:bg-blue-50 hover:text-blue-700': !isCategoryManagement
+     }"
+     class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all group">
+    <svg class="w-5 h-5 transition-colors"
+         [ngClass]="{
+           'text-blue-600': isCategoryManagement,
+           'text-gray-400 group-hover:text-blue-600': !isCategoryManagement
+         }"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+    </svg>
+    <span class="font-medium">Category Management</span>
+  </a>
+</nav>
+  
+  <!-- Footer -->
+  <div class="border-t border-gray-100 p-4 mt-auto">
+    <div class="flex items-center space-x-3 px-2 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+      <div class="w-10 h-10 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center">
+        <span class="text-white font-semibold text-sm">AD</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium truncate">Admin User</p>
+        <p class="text-xs text-gray-500 truncate">admin@example.com</p>
       </div>
     </div>
-    
-    <!-- Navigation -->
-    <nav class="flex-1 px-4 py-6 space-y-1">
-      <!-- Dashboard -->
-      <a routerLink="/dashboard" 
-         class="flex items-center space-x-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all group">
-        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-        </svg>
-        <span class="font-medium">Dashboard</span>
-      </a>
-      
-      <!-- Inventory -->
-      <a routerLink="/inventory" 
-         class="flex items-center space-x-3 px-4 py-3 text-blue-700 bg-blue-50 rounded-xl group border border-blue-100 shadow-sm">
-        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-        </svg>
-        <span class="font-medium">Inventory</span>
-      </a>
-      
-      <!-- User Management -->
-      <a routerLink="/user-management" 
-         class="flex items-center space-x-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all group">
-        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-        </svg>
-        <span class="font-medium">User Management</span>
-      </a>
-      
-      <!-- Order Management -->
-      <a routerLink="/order-management" 
-         class="flex items-center space-x-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all group">
-        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-        </svg>
-        <span class="font-medium">Order Management</span>
-      </a>
-    </nav>
-    
-    <!-- Footer -->
-    <div class="border-t border-gray-100 p-4 mt-auto">
-      <div class="flex items-center space-x-3 px-2 py-2.5 text-gray-600 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-        <div class="w-10 h-10 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center">
-          <span class="text-white font-semibold text-sm">AD</span>
-        </div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-medium truncate">Admin User</p>
-          <p class="text-xs text-gray-500 truncate">admin@example.com</p>
-        </div>
-      </div>
-    </div>
-  </aside>
+  </div>
+</aside>
   
   <!-- Main Content -->
   <div class="flex-1 flex flex-col overflow-hidden">

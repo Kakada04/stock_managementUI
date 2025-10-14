@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -29,7 +29,7 @@ export class CategoryManagement implements OnInit {
     description: ''
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private cdr :ChangeDetectorRef) {}
 
   ngOnInit() {
     this.loadCategories();
@@ -42,6 +42,7 @@ export class CategoryManagement implements OnInit {
         next: (categories) => {
           this.categories = categories;
           this.loading = false;
+          this.cdr.detectChanges();
         },
         error: (error) => {
           console.error('Error loading categories:', error);
@@ -84,18 +85,31 @@ export class CategoryManagement implements OnInit {
   }
 
   createCategory() {
-    this.http.post<Category>('http://localhost:5000/api/categories', this.categoryForm)
-      .subscribe({
-        next: (category) => {
-          this.loadCategories();
-          this.closeModal();
-        },
-        error: (error) => {
-          console.error('Error creating category:', error);
-          alert(error.error?.message || 'Error creating category');
-        }
-      });
+  // Validate
+  if (!this.categoryForm.name.trim()) {
+    alert('Category name is required');
+    return;
   }
+
+  // Send only necessary fields
+  const payload = {
+    name: this.categoryForm.name.trim(),
+    description: this.categoryForm.description?.trim() || ''
+  };
+
+  this.http.post<Category>('http://localhost:5000/api/categories', payload)
+    .subscribe({
+      next: () => {
+        this.loadCategories();
+        this.closeModal();
+      },
+      error: (error) => {
+        console.error('Create category error:', error);
+        const msg = error.error?.message || 'Unknown error creating category';
+        alert(`Error: ${msg}`);
+      }
+    });
+}
 
   updateCategory() {
     this.http.put<Category>(`http://localhost:5000/api/categories/${this.categoryForm._id}`, this.categoryForm)
