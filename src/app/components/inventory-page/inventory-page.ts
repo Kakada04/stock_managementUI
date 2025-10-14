@@ -2,7 +2,7 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BarcodeScanner } from '../barcode-scanner/barcode-scanner';
+import { BarcodeScanner } from '../reusableComponents/barcode-scanner/barcode-scanner';
 
 interface Product {
   _id?: string;
