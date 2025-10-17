@@ -18,6 +18,7 @@ export class Layout implements OnInit {
   isUserManagement = false;
   isOrderManagement = false;
   isCategoryManagement = false;
+  isStockManagement = false;
 
   // Optional: Combine into a single "isAdminPage" if needed
   isAdminPage = false;
@@ -41,6 +42,7 @@ export class Layout implements OnInit {
     this.isUserManagement = url === '/usermanage';
     this.isOrderManagement = url === '/ordermanage';
     this.isCategoryManagement = url === '/category-management';
+    this.isStockManagement = url === '/stock';
 
     // Admin-only pages (based on your route data)
     this.isAdminPage = [
