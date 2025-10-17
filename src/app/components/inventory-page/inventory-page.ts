@@ -259,6 +259,7 @@ closeBarcodeScanner() {
         .subscribe({
           next: () => {
             this.loadProducts();
+            this.cdr.detectChanges();
           },
           error: (error) => {
             console.error('Error deleting product:', error);

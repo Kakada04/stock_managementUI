@@ -19,6 +19,9 @@ export const routes: Routes = [
             {
                 path: 'inventory', 
                 loadComponent: () => import('./components/inventory-page/inventory-page').then(c => c.InventoryPage)
+            },{
+                path: 'stock',
+                loadComponent: () => import('./components/stock-management/stock-management').then(c => c.StockManagement)
             },
             {
                 path: 'dashboard', 
