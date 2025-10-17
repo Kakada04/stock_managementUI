@@ -5,13 +5,14 @@ import { AnalyticsService } from '../../services/analytics.service';
   selector: 'app-dashboard',
   standalone: true,
   templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css']
+  styleUrls: ['./dashboard.css'],
+  imports: []
 })
 export class Dashboard implements OnInit {
   totalProducts = 0;
   totalSales = 0;
   lowStockCount = 0;
-  newOrders = 0;
+  newUsers = 0;
 
   constructor(
     private analyticsService: AnalyticsService,
@@ -29,7 +30,7 @@ export class Dashboard implements OnInit {
         this.totalProducts = data.totalProduct || 0;
         this.totalSales = data.totalSales;
         this.lowStockCount = data.lowStockCount;
-        this.newOrders = data.newOrders;
+        this.newUsers = data.newUsers; // ✅ changed
         this.cdr.detectChanges(); // 👈 force UI update
       },
       error: (err) => console.error('❌ Error loading data:', err)
