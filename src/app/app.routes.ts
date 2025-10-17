@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { Layout } from './layout/layout';
 import { guardGuard } from './CORE/Guard/guard-guard';
-import { Dashboard } from './components/dashboard/dashboard';
-import { Usermanage } from './components/usermanage/usermanage';
-import { Ordermanage } from './components/orderManage/ordermanage';
+// import { Dashboard } from './components/dashboard/dashboard';
+// import { Usermanage } from './components/usermanage/usermanage';
+// import { Ordermanage } from './components/orderManage/ordermanage';
 
 export const routes: Routes = [
     {
@@ -35,7 +35,7 @@ export const routes: Routes = [
             },
             {
                 path: 'ordermanage', 
-                loadComponent: () => import('./components/orderManage/ordermanage').then(c => c.Ordermanage)
+                loadComponent: () => import('./components/ordermanage/ordermanage').then(c => c.Ordermanage)
             
             },{
   path: 'category-management',
