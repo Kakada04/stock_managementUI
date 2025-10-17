@@ -32,7 +32,7 @@ export const routes: Routes = [
             },
             {
                 path: 'ordermanage', 
-                loadComponent: () => import('./components/orderManage/ordermanage').then(c => c.Ordermanage)
+                loadComponent: () => import('./components/ordermanage/ordermanage').then(c => c.Ordermanage)
             
             },{
   path: 'category-management',

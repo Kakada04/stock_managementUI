@@ -1,11 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  standalone: true,
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css'
+  styleUrls: ['./dashboard.css']
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
+  totalProducts = 0;
+  totalSales = 0;
+  lowStockCount = 0;
+  newOrders = 0;
 
+  constructor(
+    private analyticsService: AnalyticsService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.loadOverview();
+  }
+
+  loadOverview() {
+    this.analyticsService.getOverview().subscribe({
+      next: (data) => {
+        console.log('✅ API data:', data);
+        this.totalProducts = data.totalProduct || 0;
+        this.totalSales = data.totalSales;
+        this.lowStockCount = data.lowStockCount;
+        this.newOrders = data.newOrders;
+        this.cdr.detectChanges(); // 👈 force UI update
+      },
+      error: (err) => console.error('❌ Error loading data:', err)
+    });
+  }
 }
