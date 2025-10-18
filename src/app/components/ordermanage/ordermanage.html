@@ -37,22 +37,22 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-          <tr *ngFor="let order of filteredOrders">
+          <tr *ngFor="let order of filteredOrders , let i = index">
             <td class="px-6 py-4 whitespace-nowrap">
-              <div class="text-sm font-mono text-gray-900">{{ order._id }}</div>
+              <div class="text-sm font-mono text-gray-900">{{ i+1 }}</div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <div class="text-sm font-medium text-gray-900">
-                {{ order.userId?.name || 'N/A' }}
+                {{ order.userName || 'N/A' }}
               </div>
               <div class="text-sm text-gray-500">
-                {{ order.userId?.email || 'N/A' }}
+                {{ order.userEmail || 'N/A' }}
               </div>
             </td>
             <td class="px-6 py-4">
               <div class="text-sm text-gray-900 space-y-1">
                 <div *ngFor="let item of order.items" class="flex justify-between">
-                  <span>{{ item.productId?.name || 'Unknown Product' }}</span>
+                  <span>{{ item.productName|| 'Unknown Product' }}</span>
                   <span class="text-gray-500">×{{ item.quantity }}</span>
                 </div>
               </div>

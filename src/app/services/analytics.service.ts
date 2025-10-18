@@ -11,4 +11,10 @@ export class AnalyticsService {
   getOverview(): Observable<any> {
     return this.http.get(`${this.apiUrl}/overview`); // ✅ endpoint
   }
+
+  getSalesByPeriod(period: 'day' | 'week' | 'month' = 'day'): Observable<any> {
+
+  return this.http.get<any>(`http://localhost:5000/api/orders/analytics/sales?period=${period}`)
+
+  }
 }
