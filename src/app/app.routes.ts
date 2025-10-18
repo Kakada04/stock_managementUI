@@ -32,12 +32,11 @@ export const routes: Routes = [
                 path: 'usermanage', 
                 loadComponent: () => import('./components/usermanage/usermanage').then(c => c.Usermanage),
                 // data: { role: 'admin' } // Only admin can access
+            },{
+                path: 'ordermanage', 
+                loadComponent: () => import('./components/orderManage/ordermanage').then(c => c.Ordermanage)
             },
             {
-                path: 'ordermanage', 
-                loadComponent: () => import('./components/ordermanage/ordermanage').then(c => c.Ordermanage)
-            
-            },{
   path: 'category-management',
   loadComponent: () => import('./components/category-management/category-management').then(c => c.CategoryManagement),
   data: { role: 'admin' }
