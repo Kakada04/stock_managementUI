@@ -60,45 +60,69 @@
     </div>
   </div>
 
-  <!-- Charts and Reports -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-    <!-- Sales Overview -->
-    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-lg font-semibold text-gray-800">Sales Overview</h2>
-        <div class="flex space-x-2">
-          <button class="px-3 py-1 text-sm rounded-md bg-blue-600 text-white">Day</button>
-          <button class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700">Week</button>
-          <button class="px-3 py-1 text-sm rounded-md bg-gray-100 text-gray-700">Month</button>
-        </div>
-      </div>
-      <div class="chart-container" style="height:250px;">
-        <canvas #salesCanvas id="salesChart"></canvas>
+ <!-- Charts and Reports -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+  <!-- Sales Overview -->
+  <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-semibold text-gray-800">Sales Overview</h2>
+      <div class="flex space-x-2">
+        <button 
+          (click)="changePeriod('day')"
+          [class.bg-blue-600]="currentPeriod === 'day'"
+          [class.text-white]="currentPeriod === 'day'"
+          [class.bg-gray-100]="currentPeriod !== 'day'"
+          [class.text-gray-700]="currentPeriod !== 'day'"
+          class="px-3 py-1 text-sm rounded-md transition-colors">
+          Day
+        </button>
+        <button 
+          (click)="changePeriod('week')"
+          [class.bg-blue-600]="currentPeriod === 'week'"
+          [class.text-white]="currentPeriod === 'week'"
+          [class.bg-gray-100]="currentPeriod !== 'week'"
+          [class.text-gray-700]="currentPeriod !== 'week'"
+          class="px-3 py-1 text-sm rounded-md transition-colors">
+          Week
+        </button>
+        <button 
+          (click)="changePeriod('month')"
+          [class.bg-blue-600]="currentPeriod === 'month'"
+          [class.text-white]="currentPeriod === 'month'"
+          [class.bg-gray-100]="currentPeriod !== 'month'"
+          [class.text-gray-700]="currentPeriod !== 'month'"
+          class="px-3 py-1 text-sm rounded-md transition-colors">
+          Month
+        </button>
       </div>
     </div>
-
-    <!-- Top Selling Products -->
-    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-lg font-semibold text-gray-800">Top Selling Products</h2>
-        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</button>
-      </div>
-      <div class="space-y-4">
-        <div class="flex items-center">
-          <img src="http://static.photos/retail/200x200/1" alt="Product" class="w-10 h-10 rounded-md object-cover">
-          <div class="ml-3">
-            <h4 class="text-sm font-medium text-gray-800">Wireless Headphones</h4>
-            <p class="text-xs text-gray-500">SKU: WH-2023</p>
-          </div>
-          <div class="ml-auto text-right">
-            <p class="text-sm font-medium text-gray-800">$129</p>
-            <p class="text-xs text-green-500">124 sold</p>
-          </div>
-        </div>
-        <!-- Add more product rows as needed -->
-      </div>
+    <div class="chart-container" style="height:250px;">
+      <canvas #salesCanvas id="salesChart"></canvas>
     </div>
   </div>
+
+  <!-- Top Selling Products -->
+  <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-semibold text-gray-800">Top Selling Products</h2>
+      <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</button>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center">
+        <img src="http://static.photos/retail/200x200/1" alt="Product" class="w-10 h-10 rounded-md object-cover">
+        <div class="ml-3">
+          <h4 class="text-sm font-medium text-gray-800">Wireless Headphones</h4>
+          <p class="text-xs text-gray-500">SKU: WH-2023</p>
+        </div>
+        <div class="ml-auto text-right">
+          <p class="text-sm font-medium text-gray-800">$129</p>
+          <p class="text-xs text-green-500">124 sold</p>
+        </div>
+      </div>
+      <!-- Add more product rows as needed -->
+    </div>
+  </div>
+</div>
 
   <!-- Low Stock & Comparison -->
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
