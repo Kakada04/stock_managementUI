@@ -34,7 +34,7 @@ export const routes: Routes = [
                 // data: { role: 'admin' } // Only admin can access
             },{
                 path: 'ordermanage', 
-                loadComponent: () => import('./components/orderManage/ordermanage').then(c => c.Ordermanage)
+                loadComponent: () => import('./components/ordermanage/ordermanage').then(c => c.Ordermanage)
             },
             {
   path: 'category-management',

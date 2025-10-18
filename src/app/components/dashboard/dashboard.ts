@@ -19,7 +19,7 @@ export class Dashboard implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.loadOverview();
   }
 
