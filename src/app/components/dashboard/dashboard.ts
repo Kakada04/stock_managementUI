@@ -1,5 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { AnalyticsService } from '../../services/analytics.service';
+import { TopSellingComponent } from '../top-selling/top-selling';
+import { AlertLowstock } from "../alert-lowstock/alert-lowstock";
+import { RecentOrders } from "../recent-orders/recent-orders";
 
 declare const Chart: any;
 
@@ -8,7 +11,7 @@ declare const Chart: any;
   standalone: true,
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
-  imports: []
+  imports: [TopSellingComponent, AlertLowstock, RecentOrders]
 })
 export class Dashboard implements OnInit, AfterViewInit {
   totalProducts = 0;
