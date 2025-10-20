@@ -3,21 +3,21 @@ import { Router } from '@angular/router';
 import { OrderService } from '../../services/order.service';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
-  selector: 'app-ordermanage',
-  imports: [CommonModule],
-  templateUrl: './ordermanage.html',
-  styleUrl: './ordermanage.css'
+  selector: 'app-recent-orders',
+  imports: [ CommonModule ],
+  templateUrl: './recent-orders.html',
+  styleUrl: './recent-orders.css'
 })
-export class Ordermanage implements OnInit {
+export class RecentOrders {
+
   orders: any[] = [];
   filteredOrders: any[] = [];
   loading = false;
   
   // Pagination
   currentPage = 1;
-  limit = 10;
+  limit = 5;
   totalOrders = 0;
   
   // Search
@@ -86,4 +86,5 @@ export class Ordermanage implements OnInit {
 
   // Helper for template
   Math = Math;
+
 }

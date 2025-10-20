@@ -1,0 +1,28 @@
+
+  <div *ngIf="loading" class="text-gray-500">Loading...</div>
+  <div *ngIf="error" class="text-red-600">{{ error }}</div>
+
+  <div *ngIf="!loading && lowStockProducts.length === 0" class="text-gray-500">
+    All products are sufficiently stocked ✅
+  </div>
+
+<div class="max-h-64 overflow-y-auto scrollbar-hide snap-x snap-mandatory">
+  <div *ngFor="let product of lowStockProducts" class="flex items-center p-2 bg-red-50 rounded-md mb-2 shadow-sm">
+    <img
+      [src]="'http://localhost:5000' + product.image"
+      [alt]="product.name"
+      class="w-10 h-10 rounded-md object-cover border border-gray-200"
+    />
+
+    <div class="ml-3">
+      <h4 class="text-sm font-medium text-gray-800">{{ product.name }}</h4>
+      <div class="flex items-center mt-1">
+        <span class="text-xs font-medium text-red-600">{{ product.quantity }} left</span>
+        <span class="mx-2 text-gray-300">|</span>
+        <span class="text-xs text-gray-500">SKU: {{ product.barcode }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
